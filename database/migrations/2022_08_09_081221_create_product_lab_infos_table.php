@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('product_lab_infos', function (Blueprint $table) {
             $table->id();
-            $table->string('pro_order_no')->nullable();
+            $table->string('proid')->nullable();
             $table->string('plannig_lab')->nullable();
             $table->string('lab_received')->nullable();
             $table->string('color_way')->nullable();

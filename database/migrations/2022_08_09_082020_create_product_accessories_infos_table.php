@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('product_accessories_infos', function (Blueprint $table) {
             $table->id();
-            $table->string('pro_order_no')->nullable();
+            $table->string('proid')->nullable();
             $table->string('main_label')->nullable();
             $table->string('care_label')->nullable();
             $table->string('size_label')->nullable();

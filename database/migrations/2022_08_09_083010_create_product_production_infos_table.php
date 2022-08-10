@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('product_production_infos', function (Blueprint $table) {
             $table->id();
-            $table->string('pro_order_no')->nullable();
+            $table->string('proid')->nullable();
             $table->string('cutting_planning')->nullable();
             $table->string('cutting_start')->nullable();
             $table->string('cutting_finish')->nullable();

@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('product_sampling_infos', function (Blueprint $table) {
             $table->id();
-            $table->string('pro_order_no')->nullable();
+            $table->string('proid')->nullable();
             $table->string('style_approval')->nullable();
             $table->string('style_comments')->nullable();
             $table->string('plannig_sample')->nullable();

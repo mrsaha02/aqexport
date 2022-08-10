@@ -9,7 +9,8 @@
 </head>
 <body>
 
-    <form class="m-5">
+    <form class="m-5" action="{{route('product_add')}}" method="post" >
+     @csrf
         <div class="d-flex justify-content-between align-items-center mt-3">
             <h4 class="mb-3">Add Product Information</h4>
             <a href="{{url('/product_user_view')}}" class="btn-close" aria-label="Close"></a>
@@ -19,12 +20,12 @@
                 <h5 class="mb-3 text-center">BUYER DETAILS and Product Infoemation</h5>
             </div>
             <div class="col-4">
-                <h6>Select Name</h6>
-                <select class="form-select mb-3" aria-label="Default select example" name="name">
+                <h6>Select Buyer Name</h6>
+                <select class="form-select mb-3" aria-label="Default select example" name="buyer_id">
                     <option selected>Open this select menu</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    @foreach($buyers as $buyer)
+                    <option value="{{$buyer->id}}">{{$buyer->name}}</option>
+                    @endforeach
                 </select>
             </div>
             <div class="col-4 mb-3">

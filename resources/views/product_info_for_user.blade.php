@@ -29,7 +29,7 @@
 
     <div class="d-flex justify-content-between align-items-center mt-3">
         <h4 class="mb-3">Product List</h4>
-        <a class="btn btn-sm btn-primary" href="{{url('/product_add')}}" role="button">Add Product</a>
+        <a class="btn btn-sm btn-primary" href="{{route('product_add_form')}}" role="button">Add Product</a>
     </div>
     
     <table class="table table-bordered text-center product_user_view"  id="example" >
@@ -54,27 +54,29 @@
             </tr>
         </thead>
         <tbody>
+            @foreach($products as $key=>$product)
             <tr>
+                <td>{{$key + 1}}</td>
+                <td>{{$product->name}}</td>
+                <td>{{$product->buyer_contact_name}}</td>
+                <td>{{$product->buyer_country}}</td>
+                <td>{{$product->order_no}}</td>
                 <td>1</td>
-                <td>Tiger Nixon</td>
-                <td>System Architect</td>
-                <td>Edinburgh</td>
-                <td>61</td>
-                <td>2011-04-25</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
-                <td>$320,800</td> 
-                <td>$320,800</td> 
-                <td>$320,800</td> 
+                <td>{{$product->product_name}}</td>
+                <td>{{$product->description}}</td>
+                <td>{{$product->quantity}}</td>
+                <td>{{$product->size}}</td>
+                <td>{{$product->factory_name}}</td>
+                <td>1</td>
+                <td>{{$product->shipment_date}}</td>
+                <td>1</td> 
+                <td>1</td>
                 <td>
                     <a class="btn btn-sm btn-primary" href="#" role="button">Edit</a>
-                    <a class="btn btn-sm btn-primary" href="{{url('/product')}}" role="button">Details</a>
+                    <a class="btn btn-sm btn-primary" href="{{route('product_all_details',[$product->id])}}" role="button">Details</a>
                 </td> 
             </tr>
+            @endforeach
         </tbody>
         </table>
 

@@ -60,7 +60,7 @@
                     <td>{{$buyer->buyer_country}}</td>
                     <td>{{$buyer->email}}</td>
                     <td>
-                        <button class="btn btn-sm btn-primary" role="button" data-bs-toggle="modal" data-bs-target="#update_buyer">Edit</button>
+                        <button class="btn btn-sm btn-primary buyer_edit" role="button" value="{{$buyer->id}}">Edit</button>
                         <a class="btn btn-sm btn-primary" href="#" role="button">Delete</a>
                     </td>
                 </tr>
@@ -93,7 +93,7 @@
                     <td>{{$user->role}}</td>
                     <td>{{$user->email}}</td>
                     <td>
-                        <button class="btn btn-sm btn-primary" role="button" data-bs-toggle="modal" data-bs-target="#update_employee">Edit</button>
+                        <button class="btn btn-sm btn-primary edit_employee" role="button" value="{{$user->id}}">Edit</button>
                         <a class="btn btn-sm btn-primary" href="#" role="button">Delete</a>
                     </td> 
                 </tr>
@@ -124,7 +124,7 @@
                         <select class="form-select mb-3" aria-label="Default select example" name="contact_person" name="contact_person">
                             <option selected>Open this select menu</option>
                             @foreach($contacts as $contact)
-                            <option value="{{$contact->id}}">{{$contact->name}}</option>
+                            <option value="{{$contact->name}}">{{$contact->name}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -157,28 +157,32 @@
                 <h5 class="modal-title">update Buyer</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form>
+            <form action="{{route('update_buyer')}}" method="post">
+             @csrf
+             @method('PUT')
                 <div class="modal-body">
+                    <input type="text" id="buyer_id" name="buyer_id">
+                    <input type="hidden" name="buyer_role" value="5">
                     <div class="mb-3">
-                        <label for="buyer_name" class="form-label">Buyer Name</label>
-                        <input type="text" class="form-control" id="buyer_name" name="buyer_name" aria-describedby="emailHelp" value="">
+                        <label for="buyer_name_edit" class="form-label">Buyer Name</label>
+                        <input type="text" class="form-control" id="buyer_name_edit" name="buyer_name_edit" aria-describedby="emailHelp" value="">
                     </div>
                     <div class="mb-3">
-                        <label for="contact_person" class="form-label">Select Contact Parson</label>
-                        <select class="form-select mb-3" aria-label="Default select example" name="contact_person" name="contact_person" value="">
+                        <label for="contact_person_edit" class="form-label">Select Contact Parson</label>
+                        <select class="form-select mb-3" aria-label="Default select example" name="contact_person_edit" id="contact_person_edit" value="">
                             <option selected>Open this select menu</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                            @foreach($contacts as $contact)
+                            <option value="{{$contact->name}}">{{$contact->name}}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="buyer_country" class="form-label">Buyer Country</label>
-                        <input type="text" class="form-control" id="buyer_country" name="buyer_country" aria-describedby="emailHelp" value="">
+                        <label for="buyer_country_edit" class="form-label">Buyer Country</label>
+                        <input type="text" class="form-control" id="buyer_country_edit" name="buyer_country_edit" aria-describedby="emailHelp" value="">
                     </div>
                     <div class="mb-3">
-                        <label for="buyer_email" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="buyer_email" name="buyer_email" aria-describedby="emailHelp" value="">
+                        <label for="buyer_email_edit" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="buyer_email_edit" name="buyer_email_edit" aria-describedby="emailHelp" value="">
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -242,28 +246,31 @@
                 <h5 class="modal-title">Update Employee</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form>
+            <form action="{{route('update_employee')}}" method="post">
+             @csrf
+             @method('PUT')
                 <div class="modal-body">
+                    <input type="text" id="c_employee_id" name="c_employee_id" value="">
                     <div class="mb-3">
-                        <label for="employee_id" class="form-label">Employee ID</label>
-                        <input type="text" class="form-control" id="employee_id" name="employee_id" aria-describedby="emailHelp" value="">
+                        <label for="employee_id_edit" class="form-label">Employee ID</label>
+                        <input type="text" class="form-control" id="employee_id_edit" name="employee_id_edit" aria-describedby="emailHelp" value="">
                     </div>
                     <div class="mb-3">
-                        <label for="buyer_name" class="form-label">Employee Name</label>
-                        <input type="text" class="form-control" id="buyer_name" name="buyer_name" aria-describedby="emailHelp" value="">
+                        <label for="employee_name_edit" class="form-label">Employee Name</label>
+                        <input type="text" class="form-control" id="employee_name_edit" name="employee_name_edit" aria-describedby="emailHelp" value="">
                     </div>
                     <div class="mb-3">
-                        <label for="contact_person" class="form-label">Select Position</label>
-                        <select class="form-select mb-3" aria-label="Default select example" name="contact_person" name="contact_person" value="">
+                        <label for="role_edit" class="form-label">Select Position</label>
+                        <select class="form-select mb-3" aria-label="Default select example" name="role_edit" id="role_edit" value="">
                             <option selected>Open this select menu</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                            @foreach($roles as $role)
+                            <option value="{{$role->id}}">{{$role->role}}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="buyer_email" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="buyer_email" name="buyer_email" aria-describedby="emailHelp" value="">
+                        <label for="employee_email_edit" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="employee_email_edit" name="employee_email_edit" aria-describedby="emailHelp" value="">
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -279,10 +286,54 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.js"></script>
     <script>
+        
+        $(document).ready(function(){
+
+            $(document).on('click', '.buyer_edit',function(){
+                var buyer_id = $(this).val();
+                // console.log(buyer_id);
+                $("#update_buyer").modal('show');
+                $.ajax({
+                    type:"GET",
+                    url: "/buyer_edit/"+buyer_id,
+                    success: function(response){
+                        // console.log(response.bi);
+                        $('#buyer_id').val(buyer_id);
+                        $('#buyer_name_edit').val(response.bi.name);
+                        $('#contact_person_edit').val(response.bi.buyer_contact_name);
+                        $('#buyer_country_edit').val(response.bi.buyer_country);
+                        $('#buyer_email_edit').val(response.bi.email);
+                    }
+                });
+            });
+            
+            $(document).on('click', '.edit_employee',function(){
+                var employee_id = $(this).val();
+                // console.log(employee_id);
+                $("#update_employee").modal('show');
+                $.ajax({
+                    type:"GET",
+                    url: "/employee_edit/"+employee_id,
+                    success: function(response){
+                        // console.log(response.ei);
+                        $('#c_employee_id').val(employee_id);
+                        $('#employee_id_edit').val(response.ei.emp_id);
+                        $('#employee_name_edit').val(response.ei.name);
+                        $('#role_edit').val(response.ei.role_id);
+                        $('#employee_email_edit').val(response.ei.email);
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script>
         $(document).ready(function () {
         $('#buyer_list').DataTable();
         $('#employee_list').DataTable();
         });
     </script>
+    
+
 </body>
 </html>

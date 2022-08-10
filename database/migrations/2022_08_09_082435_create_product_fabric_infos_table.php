@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('product_fabric_infos', function (Blueprint $table) {
             $table->id();
-            $table->string('pro_order_no')->nullable();
+            $table->string('proid')->nullable();
             $table->string('yarn_planning')->nullable();
             $table->string('yarn_start')->nullable();
             $table->string('yarn_finish')->nullable();
