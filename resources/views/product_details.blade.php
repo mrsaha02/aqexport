@@ -118,75 +118,73 @@
                 <th>Remarks</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody> 
         <tr>
-                <td>1</td>
-                <td>Tiger Nixon</td>
-                <td>System Architect</td>
-                <td>Edinburgh</td>
-                <td>61</td>
-                <td>2011-04-25</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
-                <td>$320,800</td>
+                <td>{{ $product_info->name }}</td>
+                <td>{{ $product_info->buyer_contact_name }}</td>
+                <td>{{ $product_info->buyer_country }}</td>
+                <td>{{ $product_info->order_no }}</td>
+                <td>{{ $product_info->style }}</td>
+                <td>{{ $product_info->product_name }}</td>
+                <td>null</td>
+                <td>{{ $product_info->po_issue_date }}</td>
+                <td>{{ $product_info->shipment_date }}</td>
+                <td>{{ $product_info->febric_details }}</td>
+                <td>{{ $product_info->gsm }}</td>
+                <td>{{ $product_info->description }}</td>
+                <td>{{ $product_info->size }}</td>
+                <td>{{ $product_info->quantity }}</td>
+                <td>{{ $product_info->plannig_lab }}</td>
+                <td>{{ $product_info->color_way }}</td>
+                <td>{{ $product_info->print_stricke_offs }}</td>
+                <td>{{ $product_info->comments_received }}</td>
+                <td>{{ $product_info->style_approval }}</td>
+                <td>{{ $product_info->style_comments }}</td>
+                <td>{{ $product_info->plannig_sample }}</td>
+                <td>{{ $product_info->pp_sample }}</td>
+                <td>{{ $product_info->pp_comments }}</td>
+                <td>{{ $product_info->production_sample }}</td>
+                <td>{{ $product_info->production_comments }}</td>
+                <td>{{ $product_info->main_label }}</td>
+                <td>{{ $product_info->care_label }}</td>
+                <td>{{ $product_info->size_label }}</td>
+                <td>{{ $product_info->flag_label }}</td>
+                <td>{{ $product_info->patch_label }}</td>
+                <td>{{ $product_info->hang_tag }}</td>
+                <td>{{ $product_info->hang_tag_string }}</td>
+                <td>null</td>
+                <td>{{ $product_info->eyelet }}</td>
+                <td>{{ $product_info->elastic }}</td>
+                <td>{{ $product_info->zipper }}</td>
+                <td>{{ $product_info->poly }}</td>
+                <td>{{ $product_info->gum_tape }}</td>
+                <td>{{ $product_info->carton }}</td>
+                <td>{{ $product_info->others }}</td>
+                <td>{{ $product_info->yarn_planning }}</td>
+                <td>{{ $product_info->yarn_start }}</td>
+                <td>{{ $product_info->yarn_finish }}</td>
+                <td>{{ $product_info->knitting_planning }}</td>
+                <td>{{ $product_info->knitting_start }}</td>
+                <td>{{ $product_info->knitting_finish }}</td>
+                <td>{{ $product_info->dyeing_planning }}</td>
+                <td>{{ $product_info->dyeing_start }}</td>
+                <td>{{ $product_info->dyeing_finish }}</td>
+                <td>{{ $product_info->deliver_cutting_planning }}</td>
+                <td>{{ $product_info->cutting_planning }}</td>
+                <td>{{ $product_info->cutting_start }}</td>
+                <td>{{ $product_info->cutting_finish }}</td>
+                <td>{{ $product_info->printing_start }}</td>
+                <td>{{ $product_info->printing_finish }}</td>
+                <td>{{ $product_info->sewing_planning }}</td>
+                <td>{{ $product_info->sewing_start }}</td>
+                <td>{{ $product_info->sewing_finish }}</td>
+                <td>{{ $product_info->finishing_start }}</td>
+                <td>{{ $product_info->finishing_finish }}</td>
+                <td>{{ $product_info->shipment_planning }}</td>
+                <td>{{ $product_info->shipment_start }}</td>
+                <td>{{ $product_info->shipment_finish }}</td>
+                <td>{{ $product_info->remarks }}</td>
+                
                 <td>     
                     <a class="btn btn-sm btn-primary" href="{{url('/product_add_dates')}}" role="button">Add Dates</a>
                     <a class="btn btn-sm btn-primary" href="{{url('/product_details_edit')}}" role="button">Edit</a>

@@ -117,7 +117,7 @@ class AdminController extends Controller
     }
     public function product_all_details($id){
 
-        $product_infos = product_info::where('product_infos.id','=',$id)
+        $product_info = product_info::where('product_infos.id','=',$id)
                 ->leftJoin('user_infos','product_infos.buyer_id','=','user_infos.id')
                 ->leftJoin('buyer_infos','user_infos.id','=','buyer_infos.user_id')
                 ->leftJoin('product_lab_infos','product_infos.id','=','product_lab_infos.proid')
@@ -126,9 +126,9 @@ class AdminController extends Controller
                 ->leftJoin('product_fabric_infos','product_infos.id','=','product_fabric_infos.proid')
                 ->leftJoin('product_production_infos','product_infos.id','=','product_production_infos.proid')
             ->first(['product_infos.*','user_infos.name','buyer_infos.buyer_contact_name','buyer_infos.buyer_country','product_lab_infos.*','product_sampling_infos.*','product_accessories_infos.*','product_fabric_infos.*','product_production_infos.*']);
-            dd($product_infos);
+            // dd($product_infos);
 
-        return view('product_details');
+        return view('product_details',compact('product_info'));
 
     }
     public function product_add_form(){
